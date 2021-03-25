@@ -21,24 +21,9 @@ include:
     - project: "I409368/ci_pipelines"
       file: "test/.maven-test.yml"
       ref: "master"
-#    - project: "I409368/ci_pipelines"
-#      file: "deploy/.docker.yml"
-#      ref: "master"
-
-deploy:
-  image: gitlab/dind
-  services:
-    - docker:18.09.7-dind
-  stage: deploy
-  script:
-    - echo "Deploying from the $CI_COMMIT_BRANCH branch."
-    - docker build --privileged -t $DOCKER_USERNAME/$DOCKER_REPOSITORY:$TAG-$VERSION .
-    - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-    - docker push $DOCKER_USERNAME/$DOCKER_REPOSITORY:$TAG-$VERSION
-  artifacts:
-    paths:
-      - "$ARTIFACT"
-
+    - project: "I409368/ci_pipelines"
+      file: "deploy/.docker.yml"
+      ref: "master"
 
 #variables:
 #    PROJECT_VERSION: "latest"
