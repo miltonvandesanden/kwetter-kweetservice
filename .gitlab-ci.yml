@@ -1,29 +1,29 @@
 variables:
     PROJECT_NAME:  "kwetter_kweetservice"
     PROJECT_VERSION: "latest"
-    ARTIFACT: "target/"
+#    ARTIFACT: "target/"
     MAVEN_CLI_OPTS: "--batch-mode --errors --fail-at-end --show-version"
     MAVEN_OPTS: "-Djava.awt.headless=true -Dmaven.repo.local=./.m2/repository"
+    DOCKER_REPOSITORY: "kwetter-kweetservice"
     DOCKER_USERNAME: "mvandesanden"
     DOCKER_PASSWORD: "Password@"
-    DOCKER_REPOSITORY: "kwetter-kweetservice"
-    TAG: $PROJECT_NAME
-    VERSION: $PROJECT_VERSION
+#    TAG: $PROJECT_NAME
+#    VERSION: $PROJECT_VERSION
 
 
 include:
     - project: "I409368/ci_pipelines"
       file: ".maven-ci.yml"
       ref: "master"
-    - project: "I409368/ci_pipelines"
-      file: "builder/.maven-build.yml"
-      ref: "master"
-    - project: "I409368/ci_pipelines"
-      file: "test/.maven-test.yml"
-      ref: "master"
-    - project: "I409368/ci_pipelines"
-      file: "deploy/.docker.yml"
-      ref: "master"
+#    - project: "I409368/ci_pipelines"
+#      file: "builder/.maven-build.yml"
+#      ref: "master"
+#    - project: "I409368/ci_pipelines"
+#      file: "test/.maven-test.yml"
+#      ref: "master"
+#    - project: "I409368/ci_pipelines"
+#      file: "deploy/.docker.yml"
+#      ref: "master"
 
 #variables:
 #    PROJECT_VERSION: "latest"
