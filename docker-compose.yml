@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  kweetservice:
+    image: mvandesanden/kwetter-kweetservice
+    build:
+      context: .
+    container_name: kweetservice
+    ports:
+      - 8043:8043
+    working_dir: /app
+
+#  krakend:
+#    image: devopsfaith/krakend
+#    ports:
+#      - 8080:8080
+#    working_dir: /krakend
+#    volumes:
+#      - ./krakend:/etc/krakend
+#    # network_mode: "host"
+

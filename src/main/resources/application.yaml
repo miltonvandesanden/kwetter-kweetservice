@@ -1,0 +1,4 @@
+server:
+  port: 8043
+  servlet:
+    contextPath: /api
