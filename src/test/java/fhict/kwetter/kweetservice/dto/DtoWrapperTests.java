@@ -5,20 +5,22 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
-public class DTOWrapperTests
+public class DtoWrapperTests
 {
     @Mock
-    private HandshakeDTO expectedHandshakeDTO;
+    private HandshakeDto expectedHandshakeDTO;
 
     @Before
     public void init()
     {
-        expectedHandshakeDTO = mock(HandshakeDTO.class);
+        expectedHandshakeDTO = mock(HandshakeDto.class);
         when(expectedHandshakeDTO.getMESSAGE()).thenReturn("Hello there!");
     }
 
@@ -26,13 +28,13 @@ public class DTOWrapperTests
     public void getAndSetTest()
     {
         //ARRANGE
-        DTOWrapper<HandshakeDTO> dtoWrapper;
+        DtoWrapper<HandshakeDto> dtoWrapper;
 
         //ACT
-        dtoWrapper = DTOWrapper.<HandshakeDTO>builder().build();
+        dtoWrapper = DtoWrapper.<HandshakeDto>builder().build();
         dtoWrapper.setData(expectedHandshakeDTO);
 
-        HandshakeDTO actualHandshakeDTO = dtoWrapper.getData();
+        HandshakeDto actualHandshakeDTO = dtoWrapper.getData();
 
         //ASSERT
         assertEquals(expectedHandshakeDTO, actualHandshakeDTO);
@@ -42,11 +44,11 @@ public class DTOWrapperTests
     public void allArgsConstructorTest()
     {
         //ARRANGE
-        DTOWrapper<HandshakeDTO> dtoWrapper;
-        HandshakeDTO actualHandshakeDTO;
+        DtoWrapper<HandshakeDto> dtoWrapper;
+        HandshakeDto actualHandshakeDTO;
 
         //ACT
-        dtoWrapper = new DTOWrapper<>(expectedHandshakeDTO);
+        dtoWrapper = new DtoWrapper(expectedHandshakeDTO);
 
         actualHandshakeDTO = dtoWrapper.getData();
 
@@ -58,11 +60,11 @@ public class DTOWrapperTests
     public void builderTest()
     {
         //ARRANGE
-        DTOWrapper<HandshakeDTO> dtoWrapper;
-        HandshakeDTO actualHandshakeDTO;
+        DtoWrapper<HandshakeDto> dtoWrapper;
+        HandshakeDto actualHandshakeDTO;
 
         //ACT
-        dtoWrapper = DTOWrapper.<HandshakeDTO>builder()
+        dtoWrapper = DtoWrapper.<HandshakeDto>builder()
                 .data(expectedHandshakeDTO)
                 .build();
 

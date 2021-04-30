@@ -1,6 +1,6 @@
 package fhict.kwetter.kweetservice.dto;
 
-public interface DTO
+public interface Dto
 {
     //leave empty
 }

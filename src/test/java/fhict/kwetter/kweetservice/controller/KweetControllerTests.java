@@ -1,7 +1,8 @@
 package fhict.kwetter.kweetservice.controller;
 
-import fhict.kwetter.kweetservice.dto.DTOWrapper;
-import fhict.kwetter.kweetservice.dto.HandshakeDTO;
+import fhict.kwetter.kweetservice.dto.DtoWrapper;
+import fhict.kwetter.kweetservice.dto.HandshakeDto;
+import fhict.kwetter.kweetservice.model.Kweet;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,6 +25,12 @@ public class KweetControllerTests
     @Mock
     private KweetController.HandshakeDelegate handshakeDelegate;
 
+    @Mock
+    private KweetController.CreateKweetDelegate createKweetDelegate;
+
+    @Mock
+    private KweetController.KweetsCreatedDelegate kweetsCreatedDelegate;
+
     private KweetController kweetController;
     private KweetController emptyKweetController;
 
@@ -32,10 +39,10 @@ public class KweetControllerTests
     {
         handshakeDelegate = mock(KweetController.HandshakeDelegate.class);
 
-        kweetController = new KweetController(Optional.of(handshakeDelegate));
-        emptyKweetController = new KweetController(Optional.empty());
+        kweetController = new KweetController(Optional.of(handshakeDelegate), Optional.of(createKweetDelegate), Optional.of(kweetsCreatedDelegate));
+        emptyKweetController = new KweetController(Optional.empty(), Optional.empty(), Optional.empty());
 
-        HandshakeDTO handshakeDTO = HandshakeDTO.builder()
+        HandshakeDto handshakeDTO = HandshakeDto.builder()
                 .build();
 
         when(handshakeDelegate.doHandshake()).thenReturn(handshakeDTO);
@@ -52,10 +59,10 @@ public class KweetControllerTests
         HttpStatus actualStatus;
 
         //ACT
-        ResponseEntity<DTOWrapper> responseEntity = kweetController.getHandshake();
+        ResponseEntity<DtoWrapper> responseEntity = kweetController.getHandshake();
 
         //ASSERT
-        actualMessage = ((HandshakeDTO)responseEntity.getBody().getData()).getMESSAGE();
+        actualMessage = ((HandshakeDto)responseEntity.getBody().getData()).getMESSAGE();
         actualStatus = responseEntity.getStatusCode();
 
         assertEquals(expectedMessage, actualMessage);
@@ -71,7 +78,7 @@ public class KweetControllerTests
         HttpStatus actualStatus;
 
         //ACT
-        ResponseEntity<DTOWrapper> response = emptyKweetController.getHandshake();
+        ResponseEntity<DtoWrapper> response = emptyKweetController.getHandshake();
 
         //ASSERT
         actualStatus = response.getStatusCode();

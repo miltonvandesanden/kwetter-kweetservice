@@ -1,6 +1,6 @@
 package fhict.kwetter.kweetservice.services;
 
-import fhict.kwetter.kweetservice.dto.HandshakeDTO;
+import fhict.kwetter.kweetservice.dto.HandshakeDto;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,9 +25,9 @@ public class HandshakeServiceTests
     public void doHandshakeTest()
     {
         //ARRANGE
-        HandshakeDTO expectedHandshakeDTO = HandshakeDTO.builder().build();
+        HandshakeDto expectedHandshakeDTO = HandshakeDto.builder().build();
 
-        HandshakeDTO actualHandshakeDTO;
+        HandshakeDto actualHandshakeDTO;
 
         //ACT
         actualHandshakeDTO = handshakeService.doHandshake();

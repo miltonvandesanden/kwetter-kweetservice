@@ -6,7 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.Assert.assertEquals;
 
 @SpringBootTest
-public class HandshakeDTOTests
+public class HandshakeDtoTests
 {
     private final String expectedMessage = "Hello there!";
 
@@ -17,7 +17,7 @@ public class HandshakeDTOTests
         String actualMessage;
 
         //ACT
-        HandshakeDTO handshakeDTO = HandshakeDTO.builder()
+        HandshakeDto handshakeDTO = HandshakeDto.builder()
                 .build();
 
         actualMessage = handshakeDTO.getMESSAGE();

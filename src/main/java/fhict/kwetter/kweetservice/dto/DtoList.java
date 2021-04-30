@@ -3,9 +3,11 @@ package fhict.kwetter.kweetservice.dto;
 import lombok.Builder;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 @Builder
-public class DTOWrapper<T extends DTO>
+public class DtoList implements Dto
 {
-    private T data;
+    private List<KweetCreatedDto> data;
 }
