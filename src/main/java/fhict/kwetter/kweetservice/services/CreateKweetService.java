@@ -22,8 +22,8 @@ public class CreateKweetService implements KweetController.CreateKweetDelegate
     @Autowired
     private final KweetRepository kweetRepository;
 
-//    @Autowired
-//    private final Sender sender;
+    @Autowired
+    private final Sender sender;
 
     @Override
     public KweetCreatedDto createKweet(CreateKweetDto createKweetDto)
@@ -33,7 +33,7 @@ public class CreateKweetService implements KweetController.CreateKweetDelegate
         Kweet result = kweetRepository.save(kweet);
 
 
-//        sender.send(result.getHashtags());
+        sender.send(result.getHashtags());
 
         //return new KweetCreatedDto(result);
         return KweetCreatedDto.builder()

@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.Assert.assertEquals;
 
 @SpringBootTest
-public class AbstractControllerTests
+public class AbstractControllerTests// extends BaseUnitTests
 {
     private AbstractController abstractController;
 

@@ -2,7 +2,6 @@ package fhict.kwetter.kweetservice.controller;
 
 import fhict.kwetter.kweetservice.dto.DtoWrapper;
 import fhict.kwetter.kweetservice.dto.HandshakeDto;
-import fhict.kwetter.kweetservice.model.Kweet;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,7 +19,7 @@ import static org.mockito.Mockito.when;
 
 @SpringBootTest
 @RunWith(MockitoJUnitRunner.class)
-public class KweetControllerTests
+public class KweetControllerTests// extends BaseUnitTests
 {
     @Mock
     private KweetController.HandshakeDelegate handshakeDelegate;

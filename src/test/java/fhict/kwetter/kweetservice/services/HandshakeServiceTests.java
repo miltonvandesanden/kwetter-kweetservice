@@ -11,7 +11,7 @@ import static org.junit.Assert.assertEquals;
 
 @SpringBootTest
 @RunWith(MockitoJUnitRunner.class)
-public class HandshakeServiceTests
+public class HandshakeServiceTests// extends BaseUnitTests
 {
     private HandshakeService handshakeService;
 

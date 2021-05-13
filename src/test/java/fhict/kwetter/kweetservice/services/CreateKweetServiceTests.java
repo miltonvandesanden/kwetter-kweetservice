@@ -21,7 +21,7 @@ import static org.mockito.Mockito.when;
 
 @SpringBootTest
 @RunWith(MockitoJUnitRunner.class)
-public class CreateKweetServiceTests
+public class CreateKweetServiceTests// extends BaseUnitTests
 {
     @Mock
     private KweetRepository kweetRepository;
@@ -36,8 +36,8 @@ public class CreateKweetServiceTests
     {
         kweetRepository = mock(KweetRepository.class);
         sender = mock(Sender.class);
-        //createKweetService = new CreateKweetService(kweetRepository, sender);
-        createKweetService = new CreateKweetService(kweetRepository);
+        createKweetService = new CreateKweetService(kweetRepository, sender);
+        //createKweetService = new CreateKweetService(kweetRepository);
     }
 
     @Test
