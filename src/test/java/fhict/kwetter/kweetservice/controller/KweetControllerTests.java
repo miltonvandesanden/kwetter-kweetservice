@@ -29,7 +29,7 @@ public class KweetControllerTests
     private KweetController.CreateKweetDelegate createKweetDelegate;
 
     @Mock
-    private KweetController.KweetsCreatedDelegate kweetsCreatedDelegate;
+    private KweetController.RetrieveKweetsDelegate retrieveKweetsDelegate;
 
     private KweetController kweetController;
     private KweetController emptyKweetController;
@@ -39,7 +39,7 @@ public class KweetControllerTests
     {
         handshakeDelegate = mock(KweetController.HandshakeDelegate.class);
 
-        kweetController = new KweetController(Optional.of(handshakeDelegate), Optional.of(createKweetDelegate), Optional.of(kweetsCreatedDelegate));
+        kweetController = new KweetController(Optional.of(handshakeDelegate), Optional.of(createKweetDelegate), Optional.of(retrieveKweetsDelegate));
         emptyKweetController = new KweetController(Optional.empty(), Optional.empty(), Optional.empty());
 
         HandshakeDto handshakeDTO = HandshakeDto.builder()
@@ -52,7 +52,7 @@ public class KweetControllerTests
     public void handshakeTest()
     {
         //ARRANGE
-        String expectedMessage = "Hello there!";
+        String expectedMessage = "Service up and running!";
         HttpStatus expectedStatus = HttpStatus.OK;
 
         String actualMessage;

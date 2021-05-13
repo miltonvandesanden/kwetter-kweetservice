@@ -16,10 +16,10 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class KweetController extends AbstractController
 {
-//    public interface HandshakeDelegate
-//    {
-//        HandshakeDto doHandshake();
-//    }
+    public interface HandshakeDelegate
+    {
+        HandshakeDto doHandshake();
+    }
 
     public interface CreateKweetDelegate
     {
@@ -31,26 +31,26 @@ public class KweetController extends AbstractController
         List<KweetCreatedDto> retrieveKweets();
     }
 
-//    private final Optional<HandshakeDelegate> getHandshakeDelegateOptional;
+    private final Optional<HandshakeDelegate> getHandshakeDelegateOptional;
     private final Optional<CreateKweetDelegate> postKweetDelegate;
     private final Optional<RetrieveKweetsDelegate> getKweetsDelegate;
 
-//    @GetMapping("/handshake")
-//    public ResponseEntity<DtoWrapper> getHandshake()
-//    {
-//        if(getHandshakeDelegateOptional.isEmpty())
-//        {
-//            return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
-//        }
-//
-//        HandshakeDto handshakeDTO = call("KweetService.getHandshake", () -> getHandshakeDelegateOptional.get().doHandshake());
-//
-//        DtoWrapper dtoWrapper = DtoWrapper.builder()
-//                .data(handshakeDTO)
-//                .build();
-//
-//        return ResponseEntity.ok(dtoWrapper);
-//    }
+    @GetMapping("/handshake")
+    public ResponseEntity<DtoWrapper> getHandshake()
+    {
+        if(getHandshakeDelegateOptional.isEmpty())
+        {
+            return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        }
+
+        HandshakeDto handshakeDTO = call("KweetService.getHandshake", () -> getHandshakeDelegateOptional.get().doHandshake());
+
+        DtoWrapper dtoWrapper = DtoWrapper.builder()
+                .data(handshakeDTO)
+                .build();
+
+        return ResponseEntity.ok(dtoWrapper);
+    }
 
     @PostMapping
     public ResponseEntity<DtoWrapper> postKweet(@RequestBody CreateKweetDto createKweetDto)

@@ -8,7 +8,7 @@ import static org.junit.Assert.assertEquals;
 @SpringBootTest
 public class HandshakeDtoTests
 {
-    private final String expectedMessage = "Hello there!";
+    private final String expectedMessage = "Service up and running!";
 
     @Test
     public void builderTest()
