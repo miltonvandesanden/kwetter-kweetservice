@@ -1,4 +1,4 @@
-package fhict.kwetter.kweetservice.dto;
+package fhict.kwetter.kweetservice.presentation.dto;
 
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,82 +1,13 @@
 variables:
-    PROJECT_NAME:  "kwetter_kweetservice"
+    PROJECT_NAME: "kwetter_kweetservice"
     PROJECT_VERSION: "latest"
-#    ARTIFACT: "target/"
     MAVEN_CLI_OPTS: "--batch-mode --errors --fail-at-end --show-version"
     MAVEN_OPTS: "-Djava.awt.headless=true -Dmaven.repo.local=./.m2/repository"
     DOCKER_REPOSITORY: "kwetter-kweetservice"
     DOCKER_USERNAME: "mvandesanden"
     DOCKER_PASSWORD: "Password@"
-#    TAG: $PROJECT_NAME
-#    VERSION: $PROJECT_VERSION
-
 
 include:
     - project: "I409368/ci_pipelines"
       file: ".maven-ci.yml"
       ref: "master"
-#    - project: "I409368/ci_pipelines"
-#      file: "builder/.maven-build.yml"
-#      ref: "master"
-#    - project: "I409368/ci_pipelines"
-#      file: "test/.maven-test.yml"
-#      ref: "master"
-#    - project: "I409368/ci_pipelines"
-#      file: "deploy/.docker.yml"
-#      ref: "master"
-
-#variables:
-#    PROJECT_VERSION: "latest"
-#    MAVEN_CLI_OPTS: "--batch-mode --errors --fail-at-end --show-version"
-#    MAVEN_OPTS: "-Djava.awt.headless=true -Dmaven.repo.local=./.m2/repository"
-#
-#    ARTIFACT: "target/"
-#    TAG: $PROJECT_NAME
-#    VERSION: $PROJECT_VERSION
-#
-#stages:
-#    - build
-#    - test
-#    - deploy
-#
-#before_script:
-#    - chmod +x mvnw
-#
-#cache:
-#    paths:
-#        - ./.m2/repository
-#    key: "$CI_BUILD_REF_NAME"
-#
-#build:
-#    image: maven:3-jdk-11
-#    stage: build
-#    script:
-#        - "mvn clean compile $MAVEN_CLI_OPTS"
-#    artifacts:
-#        paths:
-#            - $ARTIFACT
-#
-#test:
-#    image: maven:3-jdk-11
-#    stage: test
-#    dependencies:
-#        - build
-#    script:
-#        - "mvn package $MAVEN_CLI_OPTS"
-#    artifacts:
-#        paths:
-#            - $ARTIFACT
-#
-#deploy:
-#    image: gitlab/dind
-#    services:
-#        - docker:18.09.7-dind
-#    stage: deploy
-#    script:
-#        - echo "Deploying from the $CI_COMMIT_BRANCH branch."
-#        - docker build -t $DOCKER_USERNAME/$DOCKER_REPOSITORY:$TAG-$VERSION .
-#        - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-#        - docker push $DOCKER_USERNAME/$DOCKER_REPOSITORY:$TAG-$VERSION
-#    artifacts:
-#        paths:
-#            - "$ARTIFACT"

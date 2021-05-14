@@ -1,4 +1,4 @@
-package fhict.kwetter.kweetservice.controller;
+package fhict.kwetter.kweetservice.presentation.controller;
 
 import lombok.extern.slf4j.Slf4j;
 

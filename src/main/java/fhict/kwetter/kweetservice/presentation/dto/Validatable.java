@@ -1,4 +1,4 @@
-package fhict.kwetter.kweetservice.dto;
+package fhict.kwetter.kweetservice.presentation.dto;
 
 public interface Validatable
 {

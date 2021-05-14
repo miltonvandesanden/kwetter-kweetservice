@@ -1,4 +1,4 @@
-package fhict.kwetter.kweetservice.model;
+package fhict.kwetter.kweetservice.persistence.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

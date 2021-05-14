@@ -1,6 +1,7 @@
 package fhict.kwetter.kweetservice.messaging;
 
 import fhict.kwetter.kweetservice.messaging.dto.HashtagsDto;
+
 import lombok.AllArgsConstructor;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Value;

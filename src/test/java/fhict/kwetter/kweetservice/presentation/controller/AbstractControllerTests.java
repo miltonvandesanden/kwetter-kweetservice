@@ -1,4 +1,4 @@
-package fhict.kwetter.kweetservice.controller;
+package fhict.kwetter.kweetservice.presentation.controller;
 
 import org.junit.Before;
 import org.junit.Test;

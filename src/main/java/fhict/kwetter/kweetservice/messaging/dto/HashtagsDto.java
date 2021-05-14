@@ -1,6 +1,7 @@
 package fhict.kwetter.kweetservice.messaging.dto;
 
-import fhict.kwetter.kweetservice.dto.Dto;
+//import fhict.kwetter.kweetservice.presentation.dto.Dto;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,7 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 //@Component
-public class HashtagsDto implements Dto, Serializable
+public class HashtagsDto implements /*Dto, */Serializable
 {
     private List<String> hashtags;
 }
