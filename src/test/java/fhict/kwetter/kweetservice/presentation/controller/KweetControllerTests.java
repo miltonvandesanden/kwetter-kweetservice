@@ -42,7 +42,7 @@ public class KweetControllerTests// extends BaseUnitTests
 //        handshakeDelegate = mock(HandshakeDelegate.class);
 
         kweetController = new KweetController(/*Optional.of(handshakeDelegate), */Optional.of(createKweetDelegate), Optional.of(getKweetsDelegate));
-        emptyKweetController = new KweetController(/*Optional.empty(), */Optional.empty(), Optional.empty());
+        //emptyKweetController = new KweetController(/*Optional.empty(), */Optional.empty(), Optional.empty());
 
         HandshakeDto handshakeDTO = HandshakeDto.builder()
                 .build();

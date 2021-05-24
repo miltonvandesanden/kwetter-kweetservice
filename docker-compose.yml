@@ -1,11 +1,21 @@
 version: "3.8"
 
 services:
+  kweetdb:
+    image: postgres
+    container_name: kwetter-kweetdb
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: compose-postgres
+      POSTGRES_password: compose-postgres
+
   kweetservice:
     image: mvandesanden/kwetter-kweetservice
+    container_name: kwetter-kweetservice
     build:
       context: .
-    container_name: kweetservice
     ports:
       - 8043:8043
     working_dir: /app
