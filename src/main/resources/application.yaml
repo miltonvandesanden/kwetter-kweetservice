@@ -7,13 +7,17 @@ spring:
   jpa:
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
+#        dialect: org.hibernate.dialect.PostgreSQLDialect
+        dialect: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: update
   datasource:
-    url: jdbc:postgresql://localhost:5432/postgres
-    username: compose-postgres
-    password: compose-postgres
+#    url: jdbc:postgresql://localhost:5432/postgres
+    url: jdbc:h2:mem:testdb
+#    username: compose-postgres
+    username: sa
+#    password: compose-postgres
+    password:
     initialization-mode: always
   messaging:
     host: localhost
