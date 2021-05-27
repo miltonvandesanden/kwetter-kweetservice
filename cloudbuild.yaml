@@ -8,7 +8,7 @@ steps:
     args: ["package", "-Dmaven.test.skip=true"]
 
   - name: gcr.io/cloud-builders/docker
-    args: ["build", "-t", "gcr.io/kwetter-313614/kweet-service", "--build-arg=JAR_FILE=target/kweetservice-0.0.1-SNAPSHOT.jar", "."]
+    args: ["build", "-t", "eu.gcr.io/kwetter-313614/kweet-service", "--build-arg=JAR_FILE=target/kweetservice-0.0.1-SNAPSHOT.jar", "."]
 
   - name: "gcr.io/cloud-builders/gke-deploy"
     args:
@@ -31,4 +31,4 @@ substitutions:
   _CLUSTER_NAME: kwetter-cluster
   _COMPUTE_ZONE: europe-west4
 
-images: ["gcr.io/kwetter-313614/kweetservice"]
+images: ["eu.gcr.io/kwetter-313614/kweetservice"]
