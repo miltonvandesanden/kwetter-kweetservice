@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: kwetter-kweetservice
-          image: gcr.io/kwetter-313614/kweetservice:latest
+          image: eu.gcr.io/kwetter-313614/kweetservice:latest
           ports:
             - containerPort: 8043
