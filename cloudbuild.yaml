@@ -10,14 +10,14 @@ steps:
   - name: gcr.io/cloud-builders/docker
     args: ["build", "-t", "gcr.io/kwetter-313614/kweet-service", "--build-arg=JAR_FILE=target/kweetservice-0.0.1-SNAPSHOT.jar", "."]
 
-  - name: "eu.gcr.io/cloud-builders/gke-deploy"
+  - name: "gcr.io/cloud-builders/gke-deploy"
     args:
       - run
       - --filename=deployment.yaml
       - --location=europe-west4
       - --cluster=kwetter-cluster
 
-  - name: "eu.gcr.io/cloud-builders/kubectl"
+  - name: "gcr.io/cloud-builders/kubectl"
     args:
       - rollout
       - restart
@@ -31,4 +31,4 @@ substitutions:
   _CLUSTER_NAME: kwetter-cluster
   _COMPUTE_ZONE: europe-west4
 
-images: ["eu.gcr.io/kwetter-313614/kweetservice"]
+images: ["gcr.io/kwetter-313614/kweetservice"]
