@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTImestamp: null
+  labels:
+    app: kweetservice
+  name: kweetservice
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: kweetservice
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: kweetservice
+    spec:
+      containers:
+        - image: eu.gcr.io/kwetter-313614/kweetservice:latest
+          name: kwetter-kweetservice
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8043
+            resources: {}
