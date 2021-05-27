@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  creationTImestamp: null
+  creationTimestamp: null
   labels:
     app: kweetservice
   name: kweetservice
@@ -18,7 +18,7 @@ spec:
         app: kweetservice
     spec:
       containers:
-        - image: eu.gcr.io/kwetter-313614/kweetservice:latest
+        - image: gcr.io/kwetter-313614/kweetservice:latest
           name: kwetter-kweetservice
           imagePullPolicy: Always
           ports:
