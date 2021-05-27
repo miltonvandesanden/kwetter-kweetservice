@@ -25,7 +25,7 @@ steps:
       - kweetservice
     env:
       - "CLOUDSDK_COMPUTE_ZONE=${_COMPUTE_ZONE}"
-      - "CLOUDSDK_CONTAINER_CLUSTER+${_CLUSTER_NAME}"
+      - "CLOUDSDK_CONTAINER_CLUSTER=${_CLUSTER_NAME}"
 
 substitutions:
   _CLUSTER_NAME: kwetter-cluster
