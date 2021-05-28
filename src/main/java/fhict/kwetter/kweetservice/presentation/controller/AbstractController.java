@@ -7,7 +7,7 @@ import java.util.function.Supplier;
 @Slf4j
 public class AbstractController
 {
-    <T> T call(String operation, Supplier<T> supplier) throws Throwable
+    <T> T call(String operation, Supplier<T> supplier)
     {
         log.info(">> {}", operation);
 

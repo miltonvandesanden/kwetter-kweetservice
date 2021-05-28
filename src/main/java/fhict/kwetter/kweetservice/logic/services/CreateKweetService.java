@@ -21,12 +21,8 @@ public class CreateKweetService implements CreateKweetDelegate
     private final Sender sender;
 
     @Override
-    public Kweet createKweet(Kweet kweet) throws NullPointerException
+    public Kweet createKweet(Kweet kweet)
     {
-        if(kweet == null) {
-            throw new NullPointerException();
-        }
-
         Kweet result = kweetRepository.save(kweet);
 
         try {

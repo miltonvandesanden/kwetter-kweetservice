@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
 
 @SpringBootTest
 public class AbstractControllerTests// extends BaseUnitTests
@@ -28,23 +27,17 @@ public class AbstractControllerTests// extends BaseUnitTests
     {
         //ARRANGE
         boolean expectedResult = true;
-        boolean actualResult = false;
+        boolean actualResult;
 
         //ACT
-        try
-        {
-            actualResult = abstractController.call("testMethod", this::testMethod);
-        } catch (Throwable throwable)
-        {
-            fail();
-        }
+        actualResult = abstractController.call("testMethod", this::testMethod);
 
         //ASSERT
         assertEquals(expectedResult, actualResult);
     }
 
     @Test(expected = NullPointerException.class)
-    public void callIsNullTest() throws Throwable
+    public void callIsNullTest()
     {
         //ACT
         abstractController.call("", null);

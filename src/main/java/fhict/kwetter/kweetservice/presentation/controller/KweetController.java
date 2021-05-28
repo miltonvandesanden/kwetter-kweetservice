@@ -55,14 +55,7 @@ public class KweetController extends AbstractController
                 .hashtags(extractHashtags(createKweetDto.getMessage(), new ArrayList<>()))
                 .build();
 
-        Kweet result = null;
-        try
-        {
-            result = call("KweetService.createKweet", () -> postKweetDelegate.get().createKweet(kweet));
-        } catch (Throwable throwable)
-        {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+        Kweet result = call("KweetService.createKweet", () -> postKweetDelegate.get().createKweet(kweet));
 
         KweetCreatedDto kweetCreatedDto = KweetCreatedDto.builder()
                 .userId(String.valueOf(result.getUserId()))
@@ -85,14 +78,7 @@ public class KweetController extends AbstractController
             return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
         }
 
-        List<Kweet> result = null;
-        try
-        {
-            result = call("KweetService.retrieveKweets", () -> getKweetsDelegate.get().retrieveKweets());
-        } catch (Throwable throwable)
-        {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+        List<Kweet> result = call("KweetService.retrieveKweets", () -> getKweetsDelegate.get().retrieveKweets());
 
         DtoList dtoList = DtoList.builder()
                 .data(kweetsToKweetDtos(result))
