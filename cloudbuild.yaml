@@ -16,6 +16,8 @@ steps:
       - "-Dsonar.organization=miltonvandesanden"
 #      - "-Dsonar.scm.provider=git"
       - "-Dsonar.scm.disabled=true"
+      - "-Dsonar.java.coveragePlugin=jacoco"
+      - "-Dsonar.exclusions=**/*.scss,**/*.xml,**/*.php,**/*.js,**/*.css,**/*.jsv,**/*.html,**/*.zul,**/*Tests.java,**/*Tests*.java,**/*.xsd,**/*.sql"
       - "-Dsonar.language=java"
       - "-Dsonar.sources=src/main/java"
       - "-Dsonar.tests=src/test/java"
