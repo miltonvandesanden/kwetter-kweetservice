@@ -19,7 +19,7 @@ steps:
       - "-Dsonar.sources=src/main/java"
       - "-Dsonar.tests=src/test/java"
       - "-Dsonar.java.binaries=./target/classes"
-      - "-Dsonar.verbose=true"
+#      - "-Dsonar.verbose=true"
 
   - name: gcr.io/cloud-builders/docker
     args: ["build", "-t", "eu.gcr.io/kwetter-313614/kweetservice", "--build-arg=JAR_FILE=target/kweetservice-0.0.1-SNAPSHOT.jar", "."]
