@@ -25,8 +25,8 @@
 		<powermock.version>1.6.4</powermock.version>
 		<mockito.version>3.8.0</mockito.version>
 
-		<sonar.projectKey>kbapplications_eg8-simulation-service</sonar.projectKey>
-		<sonar.organization>kbapplications</sonar.organization>
+		<sonar.projectKey>kwetter-kweetservice</sonar.projectKey>
+		<sonar.organization>miltonvandesanden</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
 
@@ -56,7 +56,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.12</version>
+			<version>4.13.1</version>
 			<scope>test</scope>
 		</dependency>
 		<!-- This plugin add both junit and jupiter https://stackoverflow.com/questions/6178583/maven-does-not-find-junit-tests-to-run/#:~:text=it%20was%20adding%20the%20junit-vintage-engine -->
