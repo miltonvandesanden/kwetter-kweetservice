@@ -3,6 +3,15 @@ steps:
     entrypoint: mvn
     args: ["test"]
 
+#    sonarcube
+  - name: "gcr.io/kwetter-313614/sonar-scanner:latest"
+    args:
+      - "-Dsonar.host.url=https://sonarcloud.io"
+      - "-Dsonar.login=m.vandesanden@student.fontys.nl"
+      - "-Dsonar.projectKey=kwetter-kweetservice"
+      - "-Dsonar.oganization=miltonvandesanden"
+      - "-Dsonar.sources=."
+
   - name: maven:3-jdk-11
     entrypoint: mvn
     args: ["package", "-Dmaven.test.skip=true"]
@@ -32,3 +41,4 @@ substitutions:
   _COMPUTE_ZONE: europe-west4
 
 images: ["eu.gcr.io/kwetter-313614/kweetservice"]
+tags: ["cloud-builders-community"]
