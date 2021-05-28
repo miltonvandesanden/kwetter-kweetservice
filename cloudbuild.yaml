@@ -15,7 +15,7 @@ steps:
       - "-Dsonar.projectKey=kwetter-kweetservice"
       - "-Dsonar.organization=miltonvandesanden"
 #      - "-Dsonar.scm.provider=git"
-      - "-Dsonar.scm.disabled=false"
+      - "-Dsonar.scm.disabled=true"
       - "-Dsonar.language=java"
       - "-Dsonar.sources=src/main/java"
       - "-Dsonar.tests=src/test/java"
