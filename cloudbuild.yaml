@@ -14,9 +14,12 @@ steps:
       - "-Dsonar.login=8609b8f321c6cccc4fa7b22c32014271676c9dde"
       - "-Dsonar.projectKey=kwetter-kweetservice"
       - "-Dsonar.organization=miltonvandesanden"
-      - "-Dsonar.sources=src/main/java"
+      - "-Dsonar.scm.provider=git"
       - "-Dsonar.language=java"
+      - "-Dsonar.sources=src/main/java"
+      - "-Dsonar.tests=src/test/java"
       - "-Dsonar.java.binaries=./target/classes"
+      - "-Dsonar.verbose=true"
 
   - name: gcr.io/cloud-builders/docker
     args: ["build", "-t", "eu.gcr.io/kwetter-313614/kweetservice", "--build-arg=JAR_FILE=target/kweetservice-0.0.1-SNAPSHOT.jar", "."]
