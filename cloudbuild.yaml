@@ -3,10 +3,10 @@ steps:
     entrypoint: mvn
     args: ["test"]
 
-    
+
 
 #    sonarcube
-  - name: "eu.gcr.io/kwetter-313614/sonar-scanner"
+  - name: "gcr.io/kwetter-313614/sonar-scanner"
     args:
       - "-Dsonar.host.url=https://sonarcloud.io"
       - "-Dsonar.login=8609b8f321c6cccc4fa7b22c32014271676c9dde"
