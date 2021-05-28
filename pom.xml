@@ -25,7 +25,7 @@
 		<powermock.version>1.6.4</powermock.version>
 		<mockito.version>3.8.0</mockito.version>
 
-		<sonar.projectKey>kwetter-kweetservice</sonar.projectKey>
+		<sonar.projectKey>miltonvandesanden_kwetter-kweetservice</sonar.projectKey>
 		<sonar.organization>miltonvandesanden</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
