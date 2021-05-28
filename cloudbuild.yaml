@@ -3,15 +3,13 @@ steps:
     entrypoint: mvn
     args: ["test"]
 
-
-
 #    sonarcube
   - name: "gcr.io/kwetter-313614/sonar-scanner"
     args:
       - "-Dsonar.host.url=https://sonarcloud.io"
       - "-Dsonar.login=8609b8f321c6cccc4fa7b22c32014271676c9dde"
       - "-Dsonar.projectKey=kwetter-kweetservice"
-      - "-Dsonar.oganization=miltonvandesanden"
+      - "-Dsonar.organization=miltonvandesanden"
       - "-Dsonar.sources=."
 
   - name: maven:3-jdk-11
