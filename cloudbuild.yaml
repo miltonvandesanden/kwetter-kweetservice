@@ -7,22 +7,30 @@ steps:
     entrypoint: mvn
     args: ["package", "-Dmaven.test.skip=true"]
 
-  #    sonarcube
-  - name: "gcr.io/kwetter-313614/sonar-scanner"
+  - name: maven:3-jdk-11
+    entrypoint: mvn
     args:
-      - "-Dsonar.host.url=https://sonarcloud.io"
-      - "-Dsonar.login=8609b8f321c6cccc4fa7b22c32014271676c9dde"
-      - "-Dsonar.projectKey=kwetter-kweetservice"
-      - "-Dsonar.organization=miltonvandesanden"
-#      - "-Dsonar.scm.provider=git"
-      - "-Dsonar.scm.disabled=true"
-      - "-Dsonar.java.coveragePlugin=jacoco"
-      - "-Dsonar.exclusions=**/*.scss,**/*.xml,**/*.php,**/*.js,**/*.css,**/*.jsv,**/*.html,**/*.zul,**/*Tests.java,**/*Tests*.java,**/*.xsd,**/*.sql"
-      - "-Dsonar.language=java"
-      - "-Dsonar.sources=src/main/java"
-      - "-Dsonar.tests=src/test/java"
-      - "-Dsonar.java.binaries=./target/classes"
-#      - "-Dsonar.verbose=true"
+      - verify
+      - org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+      - -Dmaven.test.skip=true
+      - -Dsonar.login=8609b8f321c6cccc4fa7b22c32014271676c9dde
+
+  #    sonarcube
+#  - name: "gcr.io/kwetter-313614/sonar-scanner"
+#    args:
+#      - "-Dsonar.host.url=https://sonarcloud.io"
+#      - "-Dsonar.login=8609b8f321c6cccc4fa7b22c32014271676c9dde"
+#      - "-Dsonar.projectKey=kwetter-kweetservice"
+#      - "-Dsonar.organization=miltonvandesanden"
+##      - "-Dsonar.scm.provider=git"
+#      - "-Dsonar.scm.disabled=true"
+#      - "-Dsonar.java.coveragePlugin=jacoco"
+#      - "-Dsonar.exclusions=**/*.scss,**/*.xml,**/*.php,**/*.js,**/*.css,**/*.jsv,**/*.html,**/*.zul,**/*Tests.java,**/*Tests*.java,**/*.xsd,**/*.sql"
+#      - "-Dsonar.language=java"
+#      - "-Dsonar.sources=src/main/java"
+#      - "-Dsonar.tests=src/test/java"
+#      - "-Dsonar.java.binaries=./target/classes"
+##      - "-Dsonar.verbose=true"
 
   - name: gcr.io/cloud-builders/docker
     args: ["build", "-t", "eu.gcr.io/kwetter-313614/kweetservice", "--build-arg=JAR_FILE=target/kweetservice-0.0.1-SNAPSHOT.jar", "."]

@@ -24,6 +24,10 @@
 
 		<powermock.version>1.6.4</powermock.version>
 		<mockito.version>3.8.0</mockito.version>
+
+		<sonar.projectKey>kbapplications_eg8-simulation-service</sonar.projectKey>
+		<sonar.organization>kbapplications</sonar.organization>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
 
 <!--	<dependencyManagement>-->
