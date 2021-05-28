@@ -25,11 +25,7 @@ public class CreateKweetService implements CreateKweetDelegate
     {
         Kweet result = kweetRepository.save(kweet);
 
-        try {
-            sender.send(result.getHashtags());
-        } catch (Exception exception) {
-            log.error(exception.getMessage());
-        }
+        sender.send(result.getHashtags());
 
         return result;
     }
