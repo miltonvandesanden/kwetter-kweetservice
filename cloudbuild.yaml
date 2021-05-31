@@ -1,12 +1,15 @@
 steps:
+  # Unit Tests
   - name: maven:3-jdk-11
     entrypoint: mvn
     args: ["test"]
 
+  # Packaging to Jar file
   - name: maven:3-jdk-11
     entrypoint: mvn
     args: ["package", "-Dmaven.test.skip=true"]
 
+  # Perform Code Quality checks using SonarCloud
   - name: maven:3-jdk-11
     entrypoint: mvn
     args:
@@ -15,9 +18,11 @@ steps:
       - -Dmaven.test.skip=true
       - -Dsonar.login=8609b8f321c6cccc4fa7b22c32014271676c9dde
 
+  # Build Docker image
   - name: gcr.io/cloud-builders/docker
     args: ["build", "-t", "eu.gcr.io/kwetter-313614/kweetservice", "--build-arg=JAR_FILE=target/kweetservice-0.0.1-SNAPSHOT.jar", "."]
 
+  # Deploy docker image based on instructions in deployment.yaml
   - name: "gcr.io/cloud-builders/gke-deploy"
     args:
       - run
