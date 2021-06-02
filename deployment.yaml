@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kweetservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kweetservice
+  template:
+    metadata:
+      labels:
+        app: kweetservice
+    spec:
+      containers:
+        - name: kwetter-kweetservice
+          image: eu.gcr.io/kwetter-313614/kweetservice:latest
+          ports:
+            - containerPort: 8043
