@@ -15,10 +15,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@RestController
 @Slf4j
-@RequestMapping("/kweet")
 @RequiredArgsConstructor
+//@CrossOrigin
+@RestController
+@RequestMapping("/kweet")
 public class KweetController extends AbstractController
 {
     private final Optional<CreateKweetDelegate> postKweetDelegate;
