@@ -18,7 +18,7 @@
 		<mavencompiler.version>3.8.1</mavencompiler.version>
 
 		<h2database.version>1.4.200</h2database.version>
-		<postgresql.version>42.2.19</postgresql.version>
+		<postgresql.version>42.2.20.jre7</postgresql.version>
 
 		<powermock.version>1.6.4</powermock.version>
 		<mockito.version>3.8.0</mockito.version>
